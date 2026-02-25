@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prezentare Personală - Numele Tău</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Condrea Flavius-Valentin</h1>
+        <h2>Facultatea de Inginerie Electrica si Stiinta Calculatoarelor</h2>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">Despre mine</a></li>
+            <li><a href="#education">Educație</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>Despre mine</h2>
+            <img src="images/lazyAssCat.jpg" alt="Fotografie de profil cu mine" loading="lazy">
+            <p>Salut! Acesta este un paragraf scurt în care mă descriu.</p>
+        </section>
+
+        <section id="education">
+            <h2>Educație</h2>
+            <ol>
+                <li>Studiul curent / Facultatea (IESC)</li>
+                <li>Liceul absolvit (2022)</li>
+            </ol>
+        </section>
+    </main>
+
+    <aside>
+        <h3>Hobby-uri și Citate</h3>
+        <p>Îmi place programarea web. Citatul meu favorit este: "Cea mai bună modalitate de a prezice viitorul este să-l creezi."</p>
+    </aside>
+
+<footer>
+        <p>&copy; 2026 Numele Tău. Pentru contact, trimite un email la: <a href="mailto:emailul.tau@exemplu.ro">emailul.tau@exemplu.ro</a>.</p>
+
+        <section id="contact-form-section">
+            <h3>Trimite-mi un mesaj</h3>
+            
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Nume:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mesaj:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+
+                <button type="submit">Trimite Mesajul</button>
+            </form>
+        </section>
+    </footer>
+
+</body>
+</html>

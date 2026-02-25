@@ -1,0 +1,69 @@
+/* =========================================
+   5. Stilizare Formular de Contact
+   ========================================= */
+
+footer {
+    border-top: 2px solid var(--secondary-color); /* O linie de delimitare deasupra footer-ului */
+    padding-top: 20px;
+    margin-top: 40px;
+}
+
+#contact-form-section {
+    max-width: 500px; /* Păstrăm formularul relativ compact */
+    margin: 30px auto; /* Îl centrăm pe pagină */
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* O umbră similară cu cea de la poza de profil */
+}
+
+#contact-form-section h3 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px; /* Spațiu între câmpurile formularului */
+}
+
+/* Stilizarea etichetelor */
+label {
+    display: block; /* Mută eticheta pe propriul rând, deasupra input-ului */
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Stilizarea câmpurilor de text */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Ocupă toată lățimea containerului */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit; /* Preia fontul global setat pe body */
+}
+
+textarea {
+    resize: vertical; /* Permite utilizatorului să mărească zona de text doar pe verticală, pentru a nu strica designul */
+}
+
+/* Stilizarea butonului de submit */
+#contact-form-section button[type="submit"] {
+    width: 100%; /* Buton lat cât tot formularul */
+    padding: 12px;
+    background-color: var(--secondary-color);
+    color: rgb(144, 144, 144);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form-section button[type="submit"]:hover {
+    background-color: #2980b9; /* Se închide la culoare când treci cu mouse-ul peste el */
+}
