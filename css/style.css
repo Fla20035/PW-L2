@@ -1,61 +1,126 @@
-/* =========================================
-   5. Stilizare Formular de Contact
-   ========================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #0056b3;   
+  --secondary-color: #ff9900;   
+  --background-color: #f8f9fa;  /*fundal*/
+  --text-color: #333333;        /*text*/
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  line-height: 1.6; 
+}
+
+.container {
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-evenly; 
+  align-items: center;
+  text-align: center;
+}
+
+.about-header {
+  padding-bottom: 30px;
+}
+
+.about-img {
+  width: 250px;
+  height: 250px; 
+  object-fit: cover;
+  border-radius: 50%;
+}
 
 footer {
-    border-top: 2px solid var(--secondary-color); /* O linie de delimitare deasupra footer-ului */
+    border-top: 2px solid var(--primary-color);
     padding-top: 20px;
     margin-top: 40px;
 }
 
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+
+nav li {
+  display: inline-block; 
+  margin: 0 10px; 
+}
+
+
+nav a {
+  text-decoration: none; 
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: var(--primary-color); 
+  color: #ffffff; 
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+
+nav a:hover {
+  background-color: var(--secondary-color); 
+  color: var(--text-color); 
+}
+
+
+
 #contact-form-section {
-    max-width: 500px; /* Păstrăm formularul relativ compact */
-    margin: 30px auto; /* Îl centrăm pe pagină */
-    background-color: white;
+    max-width: 500px; 
+    margin: 30px auto; 
+    background-color: var(--background-color);
     padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* O umbră similară cu cea de la poza de profil */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #contact-form-section h3 {
     text-align: center;
-    color: var(--primary-color);
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
 .form-group {
-    margin-bottom: 15px; /* Spațiu între câmpurile formularului */
+    margin-bottom: 15px; 
 }
 
-/* Stilizarea etichetelor */
+
 label {
-    display: block; /* Mută eticheta pe propriul rând, deasupra input-ului */
+    display: block; 
     margin-bottom: 5px;
     font-weight: bold;
-    color: var(--primary-color);
+    color: var(--text-color);
 }
 
-/* Stilizarea câmpurilor de text */
+
 input[type="text"],
 input[type="email"],
 textarea {
-    width: 100%; /* Ocupă toată lățimea containerului */
+    width: 100%; 
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--primary-color);
     border-radius: 4px;
-    font-family: inherit; /* Preia fontul global setat pe body */
+    font-family: inherit;
 }
 
 textarea {
-    resize: vertical; /* Permite utilizatorului să mărească zona de text doar pe verticală, pentru a nu strica designul */
+    resize: vertical;
 }
 
-/* Stilizarea butonului de submit */
+
 #contact-form-section button[type="submit"] {
-    width: 100%; /* Buton lat cât tot formularul */
+    width: 100%;
     padding: 12px;
     background-color: var(--secondary-color);
-    color: rgb(144, 144, 144);
+    color: var(--text-color);
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -65,5 +130,5 @@ textarea {
 }
 
 #contact-form-section button[type="submit"]:hover {
-    background-color: #2980b9; /* Se închide la culoare când treci cu mouse-ul peste el */
+    background-color: var(--primary-color); 
 }
