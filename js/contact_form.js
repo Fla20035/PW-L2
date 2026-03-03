@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // --- TOGGLE DARK MODE ---
     const themeToggle = document.getElementById('theme-toggle');
 
     if (themeToggle) {
@@ -63,4 +64,30 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // --- ASCUNDERE/AFIȘARE SECȚIUNI ---
+
+    const sectiuniH2 = document.querySelectorAll('main h2');
+
+    sectiuniH2.forEach(function(h2) {
+        
+        h2.textContent = '▼ ' + h2.textContent;
+        h2.style.cursor = 'pointer';
+
+        h2.addEventListener('click', function() {
+            
+            if (this.textContent.startsWith('▼')) {
+                this.textContent = this.textContent.replace('▼', '▶');
+            } else {
+                this.textContent = this.textContent.replace('▶', '▼');
+            }
+
+            let elementUrmator = this.nextElementSibling;
+
+            while (elementUrmator) {
+                elementUrmator.classList.toggle('hidden');
+                elementUrmator = elementUrmator.nextElementSibling;
+            }
+        });
+    });
 });

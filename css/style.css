@@ -11,6 +11,10 @@
   --text-color: #333333;        /*text*/
 }
 
+.hidden {
+  display: none !important; 
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   line-height: 1.6; 
