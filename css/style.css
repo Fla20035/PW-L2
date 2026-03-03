@@ -155,3 +155,24 @@ textarea {
 #contact-form-section button[type="submit"]:hover {
     background-color: var(--primary-color); 
 }
+
+#back-to-top {
+  position: fixed;
+  bottom: 30px; /* Distanța față de marginea de jos */
+  right: 30px;  /* Distanța față de marginea din dreapta */
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* O mică umbră pentru efect 3D */
+  z-index: 1000; /* Ne asigurăm că stă deasupra tuturor elementelor (imagini, text) */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#back-to-top:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.05); /* Se mărește foarte puțin când treci cu mouse-ul peste el */
+}

@@ -90,4 +90,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // --- BUTON BACK TO TOP ---
+    const btnBackToTop = document.getElementById('back-to-top');
+
+    if (btnBackToTop) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                btnBackToTop.classList.remove('hidden');
+            } else {
+                btnBackToTop.classList.add('hidden');
+            }
+        });
+
+        //  on click
+        btnBackToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,              // ne duce sus
+                behavior: 'smooth'  
+            });
+        });
+    }
 });
