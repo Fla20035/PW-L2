@@ -1,27 +1,9 @@
-function submitForm(event) {
-    
-    event.preventDefault();
-
-    const nume = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const mesaj = document.getElementById("message").value;
-
-    console.log("Datele introduse în formular sunt:");
-    console.log("Nume:", nume);
-    console.log("Email:", email);
-    console.log("Mesaj:", mesaj);
-
-    console.warn("Goodbye World!");
-}
-
-
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Acum putem căuta liniștiți, pentru că HTML-ul există!
+    // --- SALUT PERSONALIZAT IN FUNCTIE DE ORA --- 
     const oraCurenta = new Date().getHours();
     const mesajSalut = document.querySelector('header p');
 
-    // Măsură de siguranță: ne asigurăm că a găsit paragraful înainte să îi schimbăm textul
     if (mesajSalut) {
         if (oraCurenta >= 6 && oraCurenta < 12) {
             mesajSalut.textContent = "Bună dimineața! Bine ai venit pe pagina mea.";
@@ -31,4 +13,38 @@ document.addEventListener('DOMContentLoaded', function() {
             mesajSalut.textContent = "Bună seara! Bine ai venit pe pagina mea.";
         }
     }
+
+    // --- HANDLE UIESTE FORMULARUL DE CONTACT ---
+    const form = document.querySelector('form');
+    const feedbackMessage = document.getElementById('form-feedback');
+
+    form.addEventListener('submit', function(event) {
+
+        event.preventDefault(); // opreste refresh-ul paginii la submit
+
+        const nume = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const mesaj = document.getElementById("message").value;
+
+        if (nume.length < 2) {
+            feedbackMessage.textContent = "Eroare: Numele este prea scurt!";
+            feedbackMessage.style.color = 'red';
+            
+        } else if (!email.includes('@')) {
+            feedbackMessage.textContent = "Eroare: Email-ul trebuie să conțină @!";
+            feedbackMessage.style.color = 'red';
+            
+        } else if (mesaj.length < 10) {
+            feedbackMessage.textContent = "Eroare: Mesajul trebuie să aibă cel puțin 10 caractere!";
+            feedbackMessage.style.color = 'red';
+            
+        } else {
+            // validare reusita
+            feedbackMessage.textContent = "Multumim, " + nume + "! Mesajul a fost trimis.";
+            feedbackMessage.style.color = 'green';
+            
+            // curatarea campurilor dupa submit
+            form.reset(); 
+        }
+    });
 });
