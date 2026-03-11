@@ -1,84 +1,13 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prezentare Personală - Numele Tău</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/contact_form.js"></script>
-    <script src="js/array.js"></script>
-</head>
-<body>
-    <div class="container">
-        <header class="container-header">
-            <h1>Condrea Flavius-Valentin</h1>
-            <h2>Facultatea de Inginerie Electrica si Stiinta Calculatoarelor</h2>
-
-            <p></p>
-        </header>
-
-        <nav>
-            <ul>
-                <li><a href="#about">Despre mine</a></li>
-                <li><a href="#education">Educație</a></li>
-
-                <li><a href="#" id="theme-toggle">🌙 Dark Mode</a></li>
-            </ul>
-        </nav>
-
-        <main>
-            <section id="about" class="about-header">
-                <h2>Despre mine</h2>
-                <img src="images/lazyAssCat.jpg" alt="Fotografie de profil cu mine" loading="lazy" class="about-img">
-                <p>Salut! Acesta este un paragraf scurt în care mă descriu.</p>
-            </section>
-
-            <section id="education">
-                <h2>Educație</h2>
-                <ol>
-                    <li>Studiul curent / Facultatea (IESC) (2022-2026)</li>
-                    <li>Liceul absolvit (2018-2022)</li>
-                    <li>Certificare fictiva yap yap (2017-2018)</li>
-                </ol>
-            </section>
-        </main>
-
-        <aside>
-            <h3>Hobby-uri și Citate</h3>
-            <p>Îmi place programarea web. Citatul meu favorit este: "Cea mai bună modalitate de a prezice viitorul este să-l creezi."</p>
-        </aside>
-
-    <footer>
-            <p>&copy; 2026 Condrea Flavius-Valentin. Pentru contact, trimite un email la: <a href="mailto:condreaflavius2003@gmail.com">condreaflavius2003@gmail.com</a>.</p>
-
-            <section id="contact-form-section">
-                <h3>Trimite-mi un mesaj</h3>
-                
-                <form action="#" onsubmit="POST">
-                    <div class="form-group">
-                        <label for="name">Nume:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Mesaj:</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
-                    </div>
-
-                    <button type="submit">Trimite Mesajul</button>
-                    <p id="form-feedback"></p>
-                </form>
-            </section>
-        </footer>
-
-    <button id="back-to-top" class="hidden">⬆ Back to top</button>
-    </div>
-</body>
-<script>
-    alert("Hello World!");
-</script> 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>proiect-web</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
