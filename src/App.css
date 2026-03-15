@@ -72,14 +72,16 @@ body {
   background: #e1e8ed;
   margin: 2rem 0;
   width: 100%;
-  max-width: 350px;
+  max-width: auto;
 }
 
 .cards-list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   width: 100%;
 }
 
@@ -109,6 +111,9 @@ body {
 
 .card-content {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .card-title {
@@ -127,4 +132,25 @@ body {
   margin: 0;
   line-height: 1.5;
   color: var(--text-main);
+}
+
+.card-footer-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.card-footer-link {
+  padding-top: 2rem;
+  display: inline-block;
+  margin-top: auto;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }

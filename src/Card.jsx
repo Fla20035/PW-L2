@@ -7,6 +7,17 @@ function Card(props) {
                 <h2 className="card-title">{props.title}</h2>
                 <h3 className="card-author">{props.name}</h3>
                 <p className="card-description">{props.description}</p>
+                
+                {props.footer && (
+                    <a 
+                        href={props.footer} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="card-footer-link"
+                    >
+                        🔗 Vezi pe GitHub
+                    </a>
+                )}
             </div>
         </div>
     );
