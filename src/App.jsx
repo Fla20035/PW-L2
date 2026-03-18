@@ -1,7 +1,10 @@
 import Card from './Card';
 import QuickNote from './QuickNote';
+import ToDoList from './ToDoList';
+import ContactForm from './ContactForm';
 import { useState } from 'react';
 import './App.css';
+
 
 function App() {
     const [count, setCount] = useState(0);
@@ -54,7 +57,7 @@ function App() {
                             </button>
                                 )}
                     </div>
-                </div>
+        </div>
 
         <hr className="divider" /> 
 
@@ -72,8 +75,16 @@ function App() {
         </div>
 
         <hr className="divider" />
+            <div className='notes-container'>
+                <QuickNote />
+                <ToDoList />
+            </div>
 
-        <QuickNote />
+
+        <hr className="divider" />
+
+        <ContactForm />
+
       </div>
     );
 }

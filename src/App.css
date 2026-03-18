@@ -195,3 +195,14 @@ body {
   text-decoration: none;
   transition: color 0.2s ease;
 }
+
+.notes-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  margin: 5rem 0;
+}
