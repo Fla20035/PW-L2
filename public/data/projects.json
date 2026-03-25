@@ -1,0 +1,7 @@
+{
+  "projects": [
+      { "id": 3, "title": "Band Pass Filter", "tech": "Electronics", "done": true },
+      { "id": 2, "title": "2D Platformer Unity", "tech": "Unity, PixelArt, C#", "done": true },
+      { "id": 1, "title": "Antena DIY 137MHz", "tech": "Electronics, Signals, SDR, nanoVNA", "done": false }
+  ]
+}

@@ -1,0 +1,118 @@
+.weather-section {
+  background-color: var(--card-bg);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 350px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  min-height: 400px;
+}
+
+.weather-title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.weather-location {
+  margin: 0 0 1rem 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--text-main);
+}
+
+.weather-search-form {
+  display: flex;
+  width: 100%;
+  max-width: 280px;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.weather-search-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.weather-search-input:focus {
+  border-color: var(--primary-color);
+}
+
+.weather-search-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.weather-search-btn:hover {
+  opacity: 0.9;
+}
+
+.weather-status-box {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.weather-temp-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.weather-temp {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--primary-color);
+  font-family: monospace;
+}
+
+.weather-unit {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-top: 0.5rem;
+}
+
+
+.weather-details {
+  width: 100%;
+  max-width: 280px;
+  background-color: var(--bg-color);
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.weather-details p {
+  margin: 0;
+  color: var(--text-main);
+}

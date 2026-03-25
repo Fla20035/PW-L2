@@ -4,6 +4,8 @@ import ToDoList from './ToDoList';
 import ContactForm from './ContactForm';
 import { useState } from 'react';
 import './App.css';
+import ProjectsList from './ProjectsList';
+import WeatherWidget from './WeatherWidget';
 
 
 function App() {
@@ -80,10 +82,18 @@ function App() {
                 <ToDoList />
             </div>
 
+        <hr className="divider" />
+
+        <div className='container-project-weather'>
+            <ProjectsList/>
+            <WeatherWidget />
+        </div>
 
         <hr className="divider" />
 
         <ContactForm />
+
+        <hr className="divider" />
 
       </div>
     );

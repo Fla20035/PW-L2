@@ -206,3 +206,13 @@ body {
   width: 100%;
   margin: 5rem 0;
 }
+
+.container-project-weather {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+}
