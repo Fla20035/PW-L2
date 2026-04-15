@@ -216,3 +216,96 @@ body {
   gap: 0.5rem;
   width: 100%;
 }
+
+/* =========================================
+   NAVBAR (Meniul de navigare)
+   ========================================= */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: 50px; /* Formă de pilulă */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: fit-content;
+  margin: 0 auto 3rem auto; /* Centrat orizontal și distanțat de conținut */
+  position: sticky;
+  top: 20px;
+  z-index: 100;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 20px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+/* Efectul când pui mouse-ul pe un link neactiv */
+.nav-link:hover {
+  color: var(--primary-color);
+  background-color: var(--bg-color);
+}
+
+/* Stilul adăugat automat de NavLink pentru pagina curentă */
+.nav-link.active {
+  color: white;
+  background-color: var(--primary-color);
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* =========================================
+   STRUCTURA PAGINILOR (Home, About, etc.)
+   ========================================= */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease-out forwards; /* Animație la încărcarea paginii */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.page-title {
+  font-size: 2.2rem;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* Stil specific pentru pagina de eroare 404 */
+.not-found-code {
+  font-size: 6rem;
+  color: var(--primary-color);
+  font-family: monospace;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1;
+}
