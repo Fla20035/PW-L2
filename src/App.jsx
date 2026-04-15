@@ -1,11 +1,16 @@
+import { BrowserRouter, Routes, Route } from 'react-router';
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact';
+import Navbar from './pages/Navbar';
 import Card from './Card';
 import QuickNote from './QuickNote';
 import ToDoList from './ToDoList';
-import ContactForm from './ContactForm';
 import { useState } from 'react';
 import './App.css';
 import ProjectsList from './ProjectsList';
 import WeatherWidget from './WeatherWidget';
+import ContactForm from './ContactForm';
 
 
 function App() {
@@ -42,6 +47,19 @@ function App() {
 
     return (
       <div className="app-container">
+
+        <hr className="divider" /> 
+        <BrowserRouter>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+        </BrowserRouter>
+        <hr className="divider" /> 
+
+
         <h1 className="page-title">Condrea Flavius-Valentin</h1>
         
         <div className="counter-section">
