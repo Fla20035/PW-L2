@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router';
-// Asigură-te că exporți corect stilurile, fie importând App.css aici, fie bazându-te pe importul din App.jsx
 
 function Navbar() {
     return (
