@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './ProjectsList.css';
+import '../Styles/ProjectsList.css';
 
 function ProjectsList() {
 

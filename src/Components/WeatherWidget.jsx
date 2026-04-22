@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./WeatherWidget.css";
+import "../Styles/WeatherWidget.css";
 
 function WeatherWidget() {
     // State-uri pentru vreme
@@ -97,15 +97,13 @@ function WeatherWidget() {
             {!loading && !error && weather && (
                 <>
                     <p className="weather-location">{locationName}</p>
-                    
                     <div className="weather-temp-container">
-                        <span className="weather-temp">{weather.temperature}</span>
-                        <span className="weather-unit">°C</span>
+                        <div className="weather-temp">{Math.round(weather.temperature)}</div>
+                        <div className="weather-unit">°C</div>
                     </div>
-
                     <div className="weather-details">
-                        <p>🌬️ Vânt: <strong>{weather.windspeed} km/h</strong></p>
-                        <p>🧭 Direcție: <strong>{weather.winddirection}°</strong></p>
+                        <p>Vânt: <strong>{weather.wind_speed} km/h</strong></p>
+                        <p>Direcție: <strong>{weather.wind_direction}°</strong></p>
                     </div>
                 </>
             )}
