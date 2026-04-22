@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 import Home from './Components/pages/Home';
 import Projects from './Components/pages/Projects';
+import LaboratorPW from './Components/pages/LaboratorPW';
 import Contact from './Components/pages/Contact';
 import NotFound from './Components/pages/NotFound';
 import Navbar from './Components/pages/Navbar';
@@ -27,6 +28,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/projects" element={<Projects />} />
+                <Route path="/laborator" element={<LaboratorPW />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
                 <Route path="/about" element={<About />} />
@@ -52,18 +54,6 @@ function App() {
         </div>
 
         <hr className="divider" />
-
-        <div className='container-project-weather'>
-            <ProjectsList/>
-            <WeatherWidget />
-        </div>
-
-        <hr className="divider" />
-
-        <ContactForm />
-
-        <hr className="divider" />
-
       </div>
     );
 }

@@ -1,0 +1,33 @@
+.laborator-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  justify-items: center;
+}
+
+.laborator-layout > div {
+  width: 100%;
+  max-width: 350px;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .laborator-layout {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .laborator-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .laborator-layout > div {
+    max-width: 100%;
+  }
+}
