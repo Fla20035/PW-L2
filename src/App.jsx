@@ -4,6 +4,7 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import Navbar from './pages/Navbar';
+import About from './pages/About';
 import Card from './Card';
 import QuickNote from './QuickNote';
 import ToDoList from './ToDoList';
@@ -57,6 +58,7 @@ function App() {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
+                <Route path="/about" element={<About />} />
             </Routes>
         </BrowserRouter>
         <hr className="divider" /> 
