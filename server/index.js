@@ -47,6 +47,20 @@ app.post('/api/projects', function(req, res) {
     res.status(201).json(newProject); // 201 - Created
 });
 
+// DELETE /api/projects/:id - sterge un proiect dupa ID
+app.delete('/api/projects/:id', function(req, res) {
+    console.log('Received DELETE request for project with ID:', req.params.id);
+    const id = parseInt(req.params.id);
+    const index = projects.findIndex(p => p.id === id);
+
+    if (index === -1) {
+        return res.status(404).json({ error: 'Proiectul nu a fost găsit' });
+    }
+
+    const deletedProject = projects.splice(index, 1);
+    res.json(deletedProject[0]);
+});
+
 const projects = [{
         id: 1,
         title: "Antena DIY 137MHz",
