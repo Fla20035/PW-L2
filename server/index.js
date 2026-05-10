@@ -1,6 +1,18 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
+const mongoose = require('mongoose');
+
+//mongusu legat la mongu 
+mongoose.connect('mongodb://127.0.0.1:27017/dashboard')
+    .then(function() {
+        console.log('Conectat la MongoDB!');
+    })
+    .catch(function(err) {
+        console.error('Eroare conectare MongoDB:', err);
+    });
+
+
 
 app.use(express.json());
 
