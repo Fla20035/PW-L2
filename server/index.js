@@ -58,6 +58,28 @@ app.get('/api/projects', async function(req, res) { //
     }
 });
 
+// search după ID
+app.get('/api/projects/:id', async function(req, res) {
+    try {
+        const project = await Project.findById(req.params.id); 
+        if (!project) return res.status(404).json({ error: 'Proiectul nu a fost gasit' });
+        res.json(project);
+    } catch (err) {
+        res.status(500).json({ error: 'Eroare la cautare ' + err });
+    }
+});
+
+// delete după ID
+app.delete('/api/projects/:id', async function(req, res) {
+    try {
+        const deletedProject = await Project.findByIdAndDelete(req.params.id); 
+        if (!deletedProject) return res.status(404).json({ error: 'Proiectul nu a fost gasit' });
+        res.json({ message: 'Proiect sters cu succes!' });
+    } catch (err) {
+        res.status(500).json({ error: 'Eroare la ștergere ' + err});
+    }
+});
+
 // Porneste serverul
 app.listen(PORT, function() {
     console.log('Server pornit pe http://localhost:' + PORT);
