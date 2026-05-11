@@ -34,7 +34,8 @@ app.post('/api/projects', async function(req, res) { //
         const newProject = new Project({ //
             title: req.body.title, //
             tech: req.body.tech, //
-            done: req.body.done || false //
+            done: req.body.done || false, //
+            status: req.body.status || 'in-lucru' //
         }); //
 
         const saved = await newProject.save(); //

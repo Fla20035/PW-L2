@@ -1,0 +1,131 @@
+/* ==========================================
+   COMMON CARD STYLES
+   ========================================== */
+
+.card-section {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   COMMON BUTTON STYLES
+   ========================================== */
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover, #0056b3);
+}
+
+.btn-primary:active {
+  transform: scale(0.96);
+}
+
+.btn-danger {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-danger:hover {
+  background-color: #dc2626;
+}
+
+.btn-danger:active {
+  transform: scale(0.95);
+}
+
+/* ==========================================
+   COMMON INPUT STYLES
+   ========================================== */
+
+.input-field {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+.input-field:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* ==========================================
+   COMMON BADGE STYLES
+   ========================================== */
+
+.badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.badge-success {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.badge-warning {
+  background-color: #fef9c3;
+  color: #ca8a04;
+}
+
+.badge-danger {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.badge-secondary {
+  background-color: #e5e7eb;
+  color: #4b5563;
+}
+
+/* ==========================================
+   RESPONSIVE UTILITIES
+   ========================================== */
+
+.error-text {
+  color: #ef4444;
+  font-weight: bold;
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.text-center {
+  text-align: center;
+}

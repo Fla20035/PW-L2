@@ -5,16 +5,91 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
   width: 100%;
-  max-width: 450px;
+  max-width: 600px;
   box-sizing: border-box;
 }
 
 .fetch-title {
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin: 0 0 1.5rem 0;
   font-size: 1.2rem;
+  font-weight: 600;
   text-align: center;
 }
+
+/* ==========================================
+   FORM STYLES
+   ========================================== */
+
+.add-project-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.add-project-form input {
+  flex: 1 1 auto;
+  min-width: 120px;
+  padding: 10px 12px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.add-project-form input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-select {
+  flex: 0 1 auto;
+  min-width: 140px;
+  padding: 10px 12px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+  background-color: white;
+  cursor: pointer;
+}
+
+.form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.btn-add {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+.btn-add:hover {
+  background-color: var(--primary-hover, #0056b3);
+}
+
+.btn-add:active {
+  transform: scale(0.96);
+}
+
+/* ==========================================
+   SEARCH STYLES
+   ========================================== */
 
 .search-input {
   width: 100%;
@@ -25,12 +100,18 @@
   font-size: 0.95rem;
   box-sizing: border-box;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
 }
 
 .search-input:focus {
   border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
+
+/* ==========================================
+   LIST & ITEM STYLES
+   ========================================== */
 
 .fetch-list {
   list-style: none;
@@ -45,10 +126,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   padding: 12px;
   background-color: var(--bg-color);
   border-radius: 8px;
   border-left: 4px solid var(--primary-color);
+}
+
+.fetch-item > div:first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.fetch-item strong {
+  display: block;
+  word-break: break-word;
 }
 
 .tech-badge {
@@ -58,11 +150,23 @@
   margin-top: 4px;
 }
 
+/* ==========================================
+   ACTION & BADGE STYLES
+   ========================================== */
+
+.action-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
 .status-badge {
   font-size: 0.8rem;
   padding: 4px 8px;
   border-radius: 12px;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .status-badge.done {
@@ -75,17 +179,91 @@
   color: #ca8a04;
 }
 
+.status-badge.future {
+  background-color: #f5e6d3;
+  color: #92400e;
+}
+
+.btn-delete {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.btn-delete:hover {
+  background-color: #dc2626;
+}
+
+.btn-delete:active {
+  transform: scale(0.95);
+}
+
+/* ==========================================
+   STATS STYLES
+   ========================================== */
+
 .stats-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-top: 1.5rem;
   padding-top: 1rem;
   border-top: 1px dashed #e1e8ed;
   font-size: 0.9rem;
 }
 
+.stats-container p {
+  margin: 0;
+}
+
 .error-text {
   color: #ef4444;
-  font-weight: bold;
+  font-weight: 600;
   text-align: center;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 600px) {
+  .projects-fetch-section {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .fetch-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .action-container {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .add-project-form {
+    flex-direction: column;
+  }
+
+  .add-project-form input,
+  .btn-add,
+  .form-select {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }

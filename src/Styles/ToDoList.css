@@ -10,9 +10,9 @@
 }
 
 .todo-title {
-  margin-top: 0;
-  margin-bottom: 1.2rem;
+  margin: 0 0 1.2rem 0;
   font-size: 1.2rem;
+  font-weight: 600;
   text-align: center;
 }
 
@@ -31,18 +31,19 @@
   font-family: inherit;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
 }
 
 .todo-input:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
 .todo-btn-add {
   background-color: var(--primary-color);
   color: white;
   border: none;
-  padding: 0 16px;
+  padding: 10px 16px;
   font-size: 0.95rem;
   font-weight: 600;
   border-radius: 8px;
@@ -52,7 +53,7 @@
 }
 
 .todo-btn-add:hover {
-  background-color: var(--primary-hover);
+  background-color: var(--primary-hover, #0056b3);
 }
 
 .todo-btn-add:active {
@@ -69,18 +70,22 @@
 }
 
 .todo-item {
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  border-left: 4px solid var(--primary-color);
-  word-wrap: break-word;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  padding: 8px 14px;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+  font-size: 0.95rem;
+  word-wrap: break-word;
+}
+
+.todo-item > span {
+  flex: 1;
+  min-width: 0;
 }
 
 .todo-btn-delete {
@@ -93,6 +98,7 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap;
   flex-shrink: 0;
 }
 

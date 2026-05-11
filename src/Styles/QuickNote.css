@@ -12,9 +12,9 @@
 }
 
 .note-title {
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem 0;
   font-size: 1.2rem;
+  font-weight: 600;
   text-align: center;
 }
 
@@ -26,13 +26,14 @@
   font-size: 1rem;
   font-family: inherit;
   box-sizing: border-box;
+  outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  resize: vertical;
 }
 
 .note-input:focus {
-  outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
 .preview-container {
@@ -42,17 +43,19 @@
 }
 
 .live-note-label {
+  margin: 0 0 0.5rem 0;
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
 }
 
 .live-note-text {
+  margin: 0;
   font-size: 1rem;
   color: var(--text-main);
   word-wrap: break-word;
   font-style: italic;
-  margin: 0;
+  line-height: 1.5;
 }
