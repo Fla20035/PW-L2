@@ -1,16 +1,50 @@
-# React + Vite
+# Personal Dashboard - Full Stack MERN App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un dashboard personal interactiv construit cu React și un backend RESTful bazat pe Express și MongoDB.
 
-Currently, two official plugins are available:
+## 🚀 Tehnologii Folosite
+* **Frontend:** React (Vite), CSS3
+* **Backend:** Node.js, Express.js
+* **Bază de Date:** MongoDB, Mongoose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Funcționalități
+* Vizualizarea proiectelor salvate în baza de date.
+* Adăugarea de noi proiecte direct din interfață (POST).
+* Ștergerea proiectelor cu actualizare în timp real a UI-ului (DELETE).
+* Căutare dinamică (filtrare după titlu).
+* Widget-uri suplimentare: Click-Per-Second (CPS) test, To-Do list etc.
 
-## React Compiler
+## 🗄️ Structura Bazei de Date
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Aplicația folosește MongoDB pentru a stoca proiectele. Un document tipic din colecția `projects` arată astfel:
 
-## Expanding the ESLint configuration
+```json
+{
+  "_id": "66435c...",
+  "title": "Antena DIY 137MHz",
+  "tech": "Radio, Signal Processing",
+  "done": false,
+  "__v": 0
+}
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💻 Cum să rulezi proiectul local
+
+1. **Clonează repository-ul**
+   ```bash
+   git clone <link-ul-tau-de-github>
+   ```
+
+2. **Pornește Backend-ul (Baza de date)**
+   ```bash
+   cd server
+   npm install
+   node index.js
+   ```
+
+3. **Pornește Frontend-ul (React)**
+   Deschide un terminal nou:
+   ```bash
+   npm install
+   npm run dev
+   ```
