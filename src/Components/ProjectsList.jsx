@@ -88,6 +88,23 @@ function ProjectsList() {
         }
     }
 
+    // Funcția pentru schimbarea statusului (PUT) - Exercițiul 1
+    async function handleToggle(id, currentDone) {
+        try {
+            const response = await fetch('http://localhost:3000/api/projects/' + id, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ done: !currentDone }) 
+            });
+            
+            const updatedProject = await response.json(); 
+            
+            setProjects(projects.map(p => p._id === id ? updatedProject : p)); 
+        } catch (err) {
+            console.error('Eroare la actualizare status:', err);
+        }
+    }
+
     if (loading) {
         return (
             <div className="projects-fetch-section">
@@ -165,7 +182,12 @@ function ProjectsList() {
                             {(() => {
                                 const statusDisplay = getStatusDisplay(project);
                                 return (
-                                    <span className={`status-badge ${statusDisplay.className}`}>
+                                    <span 
+                                        className={`status-badge ${statusDisplay.className}`}
+                                        onClick={() => handleToggle(project._id, project.done)}
+                                        style={{ cursor: 'pointer' }}
+                                        title="Apasă pentru a schimba statusul"
+                                    >
                                         {statusDisplay.text}
                                     </span>
                                 );

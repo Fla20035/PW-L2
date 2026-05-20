@@ -32,7 +32,7 @@ Aplicația folosește MongoDB pentru a stoca proiectele. Un document tipic din c
 
 1. **Clonează repository-ul**
    ```bash
-   git clone <link-ul-tau-de-github>
+   git clone <https://github.com/Fla20035/PW-L2.git>
    ```
 
 2. **Pornește Backend-ul (Baza de date)**
