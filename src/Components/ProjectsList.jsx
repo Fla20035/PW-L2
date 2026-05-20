@@ -8,10 +8,15 @@ function ProjectsList() {
     const [error, setError] = useState(null);
     const [search, setSearch] = useState('');
 
-    // Stări noi pentru formularul de adăugare (Exercițiul 4)
+    // Stări noi pentru formularul de adăugare
     const [newTitle, setNewTitle] = useState('');
     const [newTech, setNewTech] = useState('');
     const [newStatus, setNewStatus] = useState('in-lucru');
+
+    // Stări noi pentru formularul de EDITARE
+    const [editingId, setEditingId] = useState(null); 
+    const [editTitle, setEditTitle] = useState('');
+    const [editTech, setEditTech] = useState('');
 
     useEffect(() => {
         fetch('http://localhost:3000/api/projects')
@@ -88,20 +93,89 @@ function ProjectsList() {
         }
     }
 
-    // Funcția pentru schimbarea statusului (PUT) - Exercițiul 1
-    async function handleToggle(id, currentDone) {
+// Funcția pentru schimbarea circulară a statusului (PUT) 
+    async function handleToggle(project) {
+        let nextStatus = 'in-lucru';
+        let nextDone = false;
+
+        // Logica de rotație între cele 3 stări:
+        if (project.status === 'in-lucru') {
+            nextStatus = 'in-lucru-2027';
+            nextDone = false;
+        } else if (project.status === 'in-lucru-2027') {
+            nextStatus = 'finalizat';
+            nextDone = true;
+        } else if (project.status === 'finalizat') {
+            nextStatus = 'in-lucru';
+            nextDone = false;
+        }
+
+        try {
+            const response = await fetch('http://localhost:3000/api/projects/' + project._id, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    done: nextDone,
+                    status: nextStatus 
+                }) 
+            });
+            
+            if (!response.ok) {
+                alert('Eroare la salvarea noului status în server!');
+                return;
+            }
+
+            const updatedProject = await response.json(); 
+            
+            // Actualizăm lista din React ca să vedem schimbarea instant
+            setProjects(projects.map(p => p._id === project._id ? updatedProject : p)); 
+        } catch (err) {
+            console.error(err);
+            alert('Eroare de rețea la schimbarea statusului.');
+        }
+    }
+
+    // Funcția care declanșează modul de editare
+    function startEditing(project) {
+        setEditingId(project._id); // Reținem ID-ul [cite: 28]
+        setEditTitle(project.title); // Populam input-ul cu titlul actual 
+        setEditTech(project.tech); // Populam input-ul cu tech-ul actual 
+    }
+
+    // Funcția pentru butonul de "Anulează"
+    function cancelEditing() {
+        setEditingId(null); // Ieșim din modul de editare [cite: 33]
+        setEditTitle('');
+        setEditTech('');
+    }
+
+// Funcția care trimite modificările de titlu și tehnologie la server (PUT) - Exercițiul 2
+    async function handleSaveEdit(id) {
         try {
             const response = await fetch('http://localhost:3000/api/projects/' + id, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ done: !currentDone }) 
+                body: JSON.stringify({ 
+                    title: editTitle, 
+                    tech: editTech 
+                }) // Trimitem noile valori scrise de utilizator
             });
+
+            if (!response.ok) {
+                alert('Eroare la salvarea modificărilor în baza de date!');
+                return;
+            }
+
+            const updatedProject = await response.json();
             
-            const updatedProject = await response.json(); 
+            // Actualizăm proiectul editat în state-ul local din React
+            setProjects(projects.map(p => p._id === id ? updatedProject : p));
             
-            setProjects(projects.map(p => p._id === id ? updatedProject : p)); 
+            // Închidem modul de editare (revenim la cardul normal)
+            setEditingId(null);
         } catch (err) {
-            console.error('Eroare la actualizare status:', err);
+            console.error('Eroare la procesul de editare:', err);
+            alert('Eroare de rețea la salvare.');
         }
     }
 
@@ -171,34 +245,72 @@ function ProjectsList() {
 
             <ul className="fetch-list">
                 {filteredProjects.map((project) => (
-                    <li key={project._id} className="fetch-item">
-                        <div>
-                            <strong>{project.title}</strong>
-                            <span className="tech-badge">{project.tech}</span>
-                        </div>
-                        
-                        {/* Container-ul de acțiuni curățat */}
-                        <div className="action-container">
-                            {(() => {
-                                const statusDisplay = getStatusDisplay(project);
-                                return (
-                                    <span 
-                                        className={`status-badge ${statusDisplay.className}`}
-                                        onClick={() => handleToggle(project._id, project.done)}
-                                        style={{ cursor: 'pointer' }}
-                                        title="Apasă pentru a schimba statusul"
+<li key={project._id} className="fetch-item">
+                        {editingId === project._id ? (
+                            /* --- MODUL DE EDITARE (FORMULARUL) --- */
+                            <div className="edit-mode-container" style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
+                                <input 
+                                    type="text" 
+                                    value={editTitle} 
+                                    onChange={(e) => setEditTitle(e.target.value)} 
+                                    className="form-input"
+                                />
+                                <input 
+                                    type="text" 
+                                    value={editTech} 
+                                    onChange={(e) => setEditTech(e.target.value)} 
+                                    className="form-input"
+                                />
+                                <div className="action-container" style={{ marginTop: '10px' }}>
+                                    <button onClick={() => handleSaveEdit(project._id)} className="btn-add" style={{ padding: '5px 10px' }}>
+                                        Salvează
+                                    </button>
+                                    <button onClick={cancelEditing} className="btn-delete" style={{ padding: '5px 10px', backgroundColor: '#6c757d' }}>
+                                        Anulează
+                                    </button>
+                                </div>
+                            </div>
+                        ) : (
+                            /* --- MODUL NORMAL DE AFIȘARE --- */
+                            <>
+                                <div>
+                                    <strong>{project.title}</strong>
+                                    <span className="tech-badge">{project.tech}</span>
+                                </div>
+                                
+                                <div className="action-container">
+                                    {(() => {
+                                        const statusDisplay = getStatusDisplay(project);
+                                        return (
+                                            <span 
+                                                className={`status-badge ${statusDisplay.className}`}
+                                                onClick={() => handleToggle(project)}
+                                                style={{ cursor: 'pointer' }}
+                                                title="Apasă pentru a schimba statusul"
+                                            >
+                                                {statusDisplay.text}
+                                            </span>
+                                        );
+                                    })()}
+                                    
+                                    {/* BUTONUL NOU DE EDITARE */}
+                                    <button 
+                                        onClick={() => startEditing(project)}
+                                        className="btn-add"
+                                        style={{ padding: '5px 10px', fontSize: '0.8rem' }}
                                     >
-                                        {statusDisplay.text}
-                                    </span>
-                                );
-                            })()}
-                            <button 
-                                onClick={() => handleDelete(project._id)}
-                                className="btn-delete"
-                            >
-                                Șterge
-                            </button>
-                        </div>
+                                        Editează
+                                    </button>
+
+                                    <button 
+                                        onClick={() => handleDelete(project._id)}
+                                        className="btn-delete"
+                                    >
+                                        Șterge
+                                    </button>
+                                </div>
+                            </>
+                        )}
                     </li>
                 ))}
             </ul>

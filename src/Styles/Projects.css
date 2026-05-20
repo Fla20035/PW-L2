@@ -22,18 +22,19 @@
 .projects-layout {
   display: flex;
   gap: 2rem;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   align-items: flex-start;
 }
 
 .projects-column {
-  flex: 1;
-  min-width: 300px;
+  flex: 2;
+  min-width: 360px;
 }
 
 .sidebar-column {
-  flex: 0 1 400px;
+  flex: 0 1 340px;
+  max-width: 360px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
