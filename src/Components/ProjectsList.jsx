@@ -80,16 +80,25 @@ function ProjectsList() {
         };
     }
 
-    // Funcția pentru Ștergere proiect (DELETE) - Exercițiul 5
+// Funcția pentru Ștergere proiect cu confirmare (DELETE) - Exercițiul 3
     async function handleDelete(id) {
+        // Deschidem fereastra de confirmare (returnează true sau false)
+        const sigurDoreste = window.confirm('Sigur doriți să ștergeți acest proiect?');
+        
+        // Dacă utilizatorul a apăsat "Cancel" (Anulează), oprim funcția aici și nu mai ștergem
+        if (!sigurDoreste) {
+            return;
+        }
+
         try {
             await fetch('http://localhost:3000/api/projects/' + id, {
                 method: 'DELETE',
             });
-            // Tăiem proiectul sters din listă
+            // Tăiem proiectul șters din listă doar dacă serverul l-a șters cu succes
             setProjects(projects.filter((p) => p._id !== id));
         } catch (err) {
-            console.error('Eroare la stergere:', err);
+            console.error('Eroare la ștergere:', err);
+            alert('A apărut o eroare la ștergerea proiectului.');
         }
     }
 

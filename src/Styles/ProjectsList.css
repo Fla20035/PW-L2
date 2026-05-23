@@ -235,18 +235,27 @@
    ========================================== */
 
 .stats-container {
+  position: fixed;      /* Îl blochează pe ecran raportat la browser */
+  bottom: 20px;         /* Îl distanțează la 20px de marginea de jos */
+  right: 20px;          /* Îl împinge la 20px de marginea din dreapta */
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Umbră pronunțată să pară că plutește */
+  border: 1px solid #e1e8ed;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px dashed #e1e8ed;
-  font-size: 0.9rem;
+  flex-direction: column; /* Aliniază statisticile una sub alta ca o listă mică */
+  gap: 0.5rem;
+  z-index: 1000;        /* Se asigură că widget-ul stă deasupra oricărui alt element */
+  min-width: 140px;
 }
 
 .stats-container p {
   margin: 0;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between; /* Pune textul în stânga și numărul îngroșat în dreapta */
+  gap: 15px;
 }
 
 .error-text {

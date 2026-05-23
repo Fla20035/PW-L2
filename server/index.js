@@ -100,6 +100,22 @@ app.put('/api/projects/:id', async function(req, res) {
 });
 
 
+// GET /api/stats - Calculează statistici direct în baza de date (Exercițiul 4)
+app.get('/api/stats', async function(req, res) {
+    try {
+        const total = await Project.countDocuments(); // Numără toate proiectele
+        const done = await Project.countDocuments({ done: true }); // Numără doar cele finalizate
+        
+        res.json({ 
+            total: total, 
+            done: done, 
+            inProgress: total - done 
+        });
+    } catch (err) {
+        res.status(500).json({ error: 'Eroare server: ' + err.message });
+    }
+});
+
 
 // Porneste serverul
 app.listen(PORT, function() {
